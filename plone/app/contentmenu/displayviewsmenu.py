@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
+from plone import api
 from plone.app.contentmenu.interfaces import IDisplayViewsMenu
 from zope.browsermenu.menu import BrowserMenu
 from zope.component import getAdapters
+from zope.component import getUtility
+from zope.security.interfaces import IPermission
 from zope.interface import implementer
 
 
@@ -17,10 +20,17 @@ class DisplayViewsMenu(BrowserMenu):
 
         for name, item in getAdapters((context, request),
                                       self.getMenuItemType()):
+
             item_action = item.action
             # Normalize menu item action; never uses ++view++
             if item_action.startswith('@@'):
                 item_action = item_action[2:]
 
             if item_action == action:
-                return item
+                permission = getUtility(IPermission, name=item.permission)
+                user_permitted = api.user.has_permission(
+                    permission.title,
+                    user=api.user.get_current(),
+                )
+                if user_permitted:
+                    return item
