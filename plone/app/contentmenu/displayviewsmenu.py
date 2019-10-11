@@ -18,6 +18,7 @@ class DisplayViewsMenu(BrowserMenu):
         if action.startswith('++view++'):
             action = action[8:]
 
+        user_permitted = False
         for name, item in getAdapters((context, request),
                                       self.getMenuItemType()):
 
