@@ -132,7 +132,6 @@ class TestDisplayMenu(unittest.TestCase):
             'folderDefaultPageDisplay',
             [a['extra']['id'] for a in actions]
         )
-        import pdb; pdb.set_trace()
         self.assertIn(
             'plone-contentmenu-display-document_view',
             [a['extra']['id'] for a in actions]
