@@ -228,13 +228,17 @@ class DisplaySubMenuItem(BrowserSubMenuItem):
         context = self.context
         if self.context_state.is_default_page():
             context = utils.parent(context)
-        if not getattr(context, 'isPrincipiaFolderish', False):
+        try:
+            if not getattr(context, 'isPrincipiaFolderish', False):
+                return False
+            elif 'index_html' not in context:
+                return False
+            else:
+                return True
+        except AttributeError:
+            # comments on folderish content fail, see upstream report:
+            # https://github.com/plone/Products.CMFPlone/issues/3073
             return False
-        elif 'index_html' not in context:
-            return False
-        else:
-            return True
-
 
 @implementer(IDisplayMenu)
 class DisplayMenu(BrowserMenu):
