@@ -8,6 +8,17 @@ Changelog
 
 .. towncrier release notes start
 
+2.3.4.post0 (2022-12-16)
+------------------------
+
+Bug fixes:
+
+
+- Handle comments on folderish objects, see upstream report
+  https://github.com/plone/Products.CMFPlone/issues/3073
+  [gforcada] (#3073)
+
+
 2.3.4 (2021-09-15)
 ------------------
 
