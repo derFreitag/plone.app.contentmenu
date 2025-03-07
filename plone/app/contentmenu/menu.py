@@ -220,6 +220,9 @@ class DisplaySubMenuItem(BrowserSubMenuItem):
 
     @memoize
     def disabled(self):
+        portal_type = getattr(self.context, "portal_type", False)
+        if portal_type and portal_type != "freitag.article.article":
+            return True
         # As we don't have the view we need to parse the url to see
         # if its folder_contents
         context = self.context
