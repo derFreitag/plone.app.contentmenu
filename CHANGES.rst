@@ -8,6 +8,15 @@ Changelog
 
 .. towncrier release notes start
 
+3.0.6.post1 (2025-03-07)
+------------------------
+
+Bug fixes:
+
+
+- Hide the display menu on all objects but articles @gforcada
+
+
 3.0.6.post0 (2024-12-12)
 ------------------------
 
