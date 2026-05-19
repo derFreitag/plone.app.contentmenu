@@ -8,6 +8,17 @@ Changelog
 
 .. towncrier release notes start
 
+4.0.0.post0 (2026-05-19)
+------------------------
+
+Bug fixes:
+
+
+- Handle comments on folderish objects, see upstream report
+  https://github.com/plone/Products.CMFPlone/issues/3073 @gforcada (#3073)
+- Hide the display menu on all objects but articles @gforcada
+
+
 4.0.0 (2026-05-14)
 ------------------
 
